@@ -2,7 +2,7 @@
   "name": "md_linkscan",
   "version": "1.0.0",
   "description": ".md link reader and HTTP status checker for these links.",
-  "main": "cli.js",
+  "main": "./src/cli.js",
   "type": "module",
   "scripts": {
     "test": "npm run mdscan <path> (opcional: stts to HTTP status check)",
@@ -15,7 +15,8 @@
   "author": "Marshziin - Otávio Rocha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Marshziin/md_linkscan"
+    "url": "https://github.com/Marshziin/md_linkscan",
+    "email": "otaviorp2014@gmail.com"
   },
   "homepage": "https://github.com/Marshziin/md_linkscan#readme",
   "dependencies": {
