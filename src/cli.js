@@ -9,7 +9,11 @@ const dir = process.argv;
 async function sender(file,name='',stts){
     if(stts){
         const auth = await authVerify(file);
-        console.log(auth);
+        if(file.length === 0){
+            console.log(chalk.red('Não há links nesse arquivo.'))
+        }else{
+            console.log(auth);
+        }
     }else{
         console.log(chalk.bgBlack(name), chalk.bgRed('----->'));
         console.log(file);
