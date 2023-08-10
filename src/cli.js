@@ -10,14 +10,19 @@ async function sender(file,name='',stts){
     if(stts){
         const auth = await authVerify(file);
         if(file.length === 0){
-            console.log(bgBlack(name), chalk.bgRed('----->'))
+            console.log(chalk.bgBlack(name), chalk.bgRed('----->'))
             console.log(chalk.red('Não há links nesse arquivo.'))
         }else{
             console.log(auth);
         }
     }else{
+        if(file.length === 0){
+            console.log(chalk.bgBlack(name), chalk.bgRed('----->'))
+            console.log(chalk.red('Não há links nesse arquivo.'))
+        } else{
         console.log(chalk.bgBlack(name), chalk.bgRed('----->'));
         console.log(file);
+        };
     };
 };
 
