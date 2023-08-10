@@ -26,9 +26,11 @@ npm install chalk
 ```
 
 ## Versão
-1.0.0
+1.1.0
 
 ## Agradecimentos
 Esse é meu primeiro projeto pessoal com NodeJs, agradeço por experimentá-lo, em caso de contato, me mande uma mensagem no discord ou mande uma e-mail.
 
-Discord: marzeero && Email: otaviorp2014@gmail.com
+Discord: marzeero,
+Email: otaviorp2014@gmail.com
+
