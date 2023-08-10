@@ -9,21 +9,23 @@ const dir = process.argv;
 async function sender(file,name='',stts){
     if(stts){
         const auth = await authVerify(file);
-        console.log(auth)
+        console.log(auth);
     }else{
         console.log(chalk.bgBlack(name), chalk.bgRed('----->'));
         console.log(file);
     };
 };
 
-function info(){
-    console.log('-----------------------------------------------------------------------------------------------------------------------------------------');
-    console.log(chalk.white('MD LINK SCAN | VERSAO: 1.0'))
-    console.log(chalk.yellow('STATUS COMUNS:'));
-    console.log(chalk.green('200 -> Site OK, em funcionamento.'));
-    console.log(chalk.blue('404 -> Página de site não encontrada.'));
-    console.log('Para mais, confira: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses');
-    console.log('-----------------------------------------------------------------------------------------------------------------------------------------');
+function info(status){
+    if(status){
+        console.log('-----------------------------------------------------------------------------------------------------------------------------------------');
+        console.log(chalk.white('MD LINK SCAN | VERSAO: 1.0'));
+        console.log(chalk.yellow('STATUS COMUNS:'));
+        console.log(chalk.green('200 -> Site OK, em funcionamento.'));
+        console.log(chalk.blue('404 -> Página de site não encontrada.'));
+        console.log('Para mais, confira: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses');
+        console.log('-----------------------------------------------------------------------------------------------------------------------------------------');
+    };
 };
 
 
@@ -38,11 +40,12 @@ async function processArchive(){
 };
 
     if(fs.lstatSync(path).isFile()){
+        info(stts)
         const links = await collectArchive(path);
         sender(links,path,stts);
     } else if(fs.lstatSync(path).isDirectory()){
         const readDir = await fs.promises.readdir(path,'utf-8');
-        info();
+        info(stts);
         readDir.forEach(async (element) => {
             const result = await collectArchive(`${path}/${element}`);
             sender(result,element,stts);
@@ -50,5 +53,5 @@ async function processArchive(){
     };
 };
 
-processArchive()
+processArchive();
 
